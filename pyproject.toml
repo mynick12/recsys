@@ -1,0 +1,9 @@
+[project]
+name = "recsys-lab"
+version = "0.1.0"
+description = "Reproducible PyTorch recommender systems for implicit feedback."
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
