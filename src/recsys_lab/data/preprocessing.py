@@ -20,3 +20,14 @@ def load_movielens_100k(raw_dir: Path) -> pd.DataFrame:
     )
 
     return interactions
+
+def encode_ids(interactions: pd.DataFrame) -> pd.DataFrame:
+    "Map users/Items ID's to contiguous numbers starting from 0"
+    interactions = interactions.copy()
+    user_codes, _ = pd.factorize(interactions["user_id"], sort = True)
+    item_codes, _ = pd.factorize(interactions["item_id"], sort = True)
+
+    interactions["user_idx"] = user_codes
+    interactions["item_idx"] = item_codes
+    
+    return interactions
